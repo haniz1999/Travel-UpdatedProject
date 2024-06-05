@@ -1,16 +1,18 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import Navbar from "../comps/navbar";
+import Footer from "../comps/Footer";
+import Header from "../comps/Header";
+import UpButton from "../comps/UpButton";
 
+// Define the Home functional component
 const Home = () => {
     return (
+	        // this is background color of the page
             <div className="bg-gray-100 dark:bg-gray-800 transition duration-200">
-            <header>
+            <Header/> {/* here we call Header in components folder to display the header image */}
 
-                <img src="/images/header.png" alt="Header Image" className="w-full"/>
-            </header>
-
-                        <Navbar/>
+                        <Navbar/> {/* here we call the Navbar in folder components to display the navbar */}
 
 
 
@@ -30,7 +32,7 @@ const Home = () => {
             </div>
 
 
-
+            {/* here we display somethings to move up to another pages */}
             <div className="container mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="relative group">
@@ -175,7 +177,7 @@ const Home = () => {
                         <hr className="border-b-2 border-gray-300 mx-0 w-full"/>
                     </div>
 
-
+ {/* this sections displays some travelers says about us */}
                     <section className="py-12 bg-gray-100 dark:bg-gray-800 dark:text-gray-400">
                         <div className="container mx-auto px-4">
                             <h2 className="text-3xl font-bold text-center mb-8">What Travelers Say</h2>
@@ -226,45 +228,7 @@ const Home = () => {
                     </section>
 
 
-                    <footer className="bg-gray-800 text-white">
-                        <div className="container mx-auto px-4 py-8">
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-                                <div>
-                                    <h2 className="font-bold text-lg mb-4">About Us</h2>
-                                    <p>Discover the best of Israel with curated travel guides, tips, and insights.</p>
-                                </div>
-
-                                <div>
-                                    <h2 className="font-bold text-lg mb-4">Quick Links</h2>
-                                    <ul>
-                                        <li><Link to="explore" className="hover:text-blue-400">Explore</Link></li>
-                                        <li><Link to="restaurants" className="hover:text-blue-400">Restaurants</Link></li>
-                                        <li><Link to="#" className="hover:text-blue-400">Where to Go</Link></li>
-                                        <li><Link to="things-to-do" className="hover:text-blue-400">Things to Do</Link></li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h2 className="font-bold text-lg mb-4">Contact Us</h2>
-                                    <p>Email: contact@example.com</p>
-                                    <p>Phone: +972 123 4567</p>
-                                </div>
-
-                                <div>
-                                    <h2 className="font-bold text-lg mb-4">Follow Us</h2>
-                                    <div className="flex space-x-4">
-                                        <Link to="#" className="hover:text-blue-400">Facebook</Link>
-                                        <Link to="#" className="hover:text-blue-400">Instagram</Link>
-                                        <Link to="#" className="hover:text-blue-400">Twitter</Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="border-t border-gray-700 text-center py-4">
-                            <p>&copy; 2024 Travel Israel. All rights reserved.</p>
-                        </div>
-                    </footer>
+                    <Footer/> {/*here we call Footer in components folder to display the footer in the down of the page */}
 
             </div>
 

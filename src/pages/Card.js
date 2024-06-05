@@ -1,6 +1,9 @@
 import React from 'react';
+// Define the Card functional component
 function Card() {
     return (
+        // Main container div for the card, with responsive width classes
+
         <div className="w-full md:w-1/2 lg:w-2/6">
             <div className="bg-white dark:bg-gray-800 m-4 rounded-lg shadow-2xl">
                 <img
@@ -50,5 +53,6 @@ function Card() {
         </div>
     );
 }
+// Export the Card component as the default export
 
 export default Card;

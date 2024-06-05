@@ -4,9 +4,12 @@ import LocationHandler from "../utils/locationHandler";
 import {getCoordsByCity} from "../utils/common";
 import SearchBar from "../comps/SearchBar";
 import RestaurantList from "../comps/RestaurantList";
+import Footer from "../comps/Footer";
+import Header from "../comps/Header";
+import Cites from "../comps/Cites";
+import UpButton from "../comps/UpButton";
 
-
-export const getRestaurants = async (lat, long) => {
+export const getRestaurants = async (lat, long) => { //here we are using an API to get lat and long (x,y) for the user
     try {
         const response = await fetch(`https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=${lat}&longitude=${long}&limit=10&currency=ils&distance=4&lunit=km&lang=en_US`, {
             method: 'GET',
@@ -16,7 +19,7 @@ export const getRestaurants = async (lat, long) => {
             }
         });
 
-        if (!response.ok) {
+        if (!response.ok) { //if we didnt success to get the long and lat of the user we get a fail message
             throw new Error(`API call failed with status: ${response.status}, text: ${await response.text()}`);
         }
 
@@ -29,8 +32,8 @@ export const getRestaurants = async (lat, long) => {
 
 
 
-
-const Restaurants = () => {
+// Define the Restaurants functional component
+const Restaurants = () => { {/*here we get the city by its name and we get its x,y using API too (another API) */}
     const [latitude, setLatitude] = useState(0)
     const [longitude, setLongitude] = useState(0)
     const [restaurants, setRestaurants] = useState([]);
@@ -58,12 +61,10 @@ const Restaurants = () => {
             <body className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400">
 
          
-            <header>
-                <img src="/images/header.png" alt="Header Image" className="w-full"/>
-            </header>
+            <Header/> {/*here we call Header in components folder to display the Header */}
 
 
-                       <Navbar/>
+                       <Navbar/> {/*here we call Navbar in components folder to display the Navbar */}
 
 
 
@@ -95,38 +96,9 @@ const Restaurants = () => {
             <script src="https://maps.googleapis.com/maps/api/js?key=65d2942cbe3e8745956225aro865b60&libraries=places"></script>
 
         
-            <section className="container mx-auto py-8 px-4">
-                <h2 className="text-3xl font-bold mb-4 text-center text-navy">Cities</h2>
-                <nav className="flex flex-wrap justify-center sm:space-x-6 lg:space-x-8">
-               
-                    <a href="#haifa" className="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                        <i className="fas fa-city mr-2"></i>
-                        Haifa
-                    </a>
-                  
-                    <a href="#telaviv" className="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                        <i className="fas fa-city mr-2"></i>
-                        Tel Aviv
-                    </a>
-                  
-                    <a href="#qiryatshomna" className="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                        <i className="fas fa-city mr-2"></i>
-                        Qiryat Shomna
-                    </a>
-                  
-                    <a href="#eilat" className="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                        <i className="fas fa-city mr-2"></i>
-                        Eilat
-                    </a>
-                
-                    <a href="#jerusalem" className="city-link flex items-center justify-center bg-gray-200 text-gray-700 px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                        <i className="fas fa-city mr-2"></i>
-                        Jerusalem
-                    </a>
-                </nav>
-            </section>
+            <Cites/>{/*here we call Cites in components folder to display the Cites names*/}
 
-
+{/*here we are showing some restaurants in the five cites shown up in Cites components */}
             <section className="container mx-auto py-8 px-4 ">
               
                 <div id="haifa" className="mb-8">
@@ -832,7 +804,7 @@ const Restaurants = () => {
                 </div>
              
             </section>
-           
+           <Footer/> {/*here we call Footer in components folder to display the Footer*/}
            
 
             </body>

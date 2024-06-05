@@ -5,8 +5,12 @@ import AttractionsDisplay from "../comps/AttractionsListDisplay";
 import {getCoordsByCity} from "../utils/common";
 import SearchBar from "../comps/SearchBar";
 import RestaurantList from "../comps/RestaurantList";
+import Footer from "../comps/Footer";
+import Header from "../comps/Header";
+import Cites from "../comps/Cites";
+import UpButton from "../comps/UpButton";
 
-
+// Define the Home functional component
 const ThingsToDo = () => {
 
     const [latitude, setLatitude] = useState(0)
@@ -16,7 +20,7 @@ const ThingsToDo = () => {
 
 
 
-    async function getAttractions(latitude, longitude) {
+    async function getAttractions(latitude, longitude) { //here we are using API to get the attraction by the latitude and longitude of the user
         const url = `https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng?latitude=${latitude}&longitude=${longitude}&lunit=km&currency=USD&lang=en_US`;
 
         const options = {
@@ -39,7 +43,7 @@ const ThingsToDo = () => {
     }
 
 
-    async function searchByName() {
+    async function searchByName() { //here we search by name
         const cityName = document.getElementById('cityInput').value.trim();
         const result = await getCoordsByCity(cityName)
         const {longitude,latitude}= result
@@ -61,12 +65,10 @@ const ThingsToDo = () => {
             <body className="bg-gray-100  text-gray-700 dark:bg-gray-800   dark:text-gray-200">
 
             
-            <header>
-                <img src="/images/header.png" alt="Header Image" className="w-full"/>
-            </header>
+           <Header/> {/*here we call Header in components folder to display the Header in the page */}
 
-                        <Navbar/>
-
+                        <Navbar/> {/*here we call Navbar in components folder to display the Navbar in the page */}
+{/* this div shows to the user to explore nearby places*/}
             <div className="bg-white p-6 rounded-lg shadow-md text-center dark:bg-gray-800">
                 <div className="text-center mt-8">
                     <h1 className="text-4xl font-bold ">Explore Nearby Places</h1>
@@ -93,43 +95,17 @@ const ThingsToDo = () => {
 
 
 
-                                <section className="container mx-auto py-8 px-4 ">
-                    <p className="text-2xl  mb-4 text-center">Explore Top Cities in Israel and Their Must-See Attractions</p>
-                    <nav className="flex flex-wrap justify-center sm:space-x-6 lg:space-x-8 dark:text-black">
-                                                <a href="#haifa" className="city-link flex items-center justify-center bg-gray-200  px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                            <i className="fas fa-city mr-2"></i>
-                            Haifa
-                        </a>
-                                                <a href="#telaviv" className="city-link flex items-center justify-center bg-gray-200  px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                            <i className="fas fa-city mr-2"></i>
-                            Tel Aviv
-                        </a>
-                                                <a href="#qiryatshomna" className="city-link flex items-center justify-center bg-gray-200  px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                            <i className="fas fa-city mr-2"></i>
-                            Qiryat Shomna
-                        </a>
-                                                <a href="#eilat" className="city-link flex items-center justify-center bg-gray-200  px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                            <i className="fas fa-city mr-2"></i>
-                            Eilat
-                        </a>
-                                                <a href="#jerusalem" className="city-link flex items-center justify-center bg-gray-200  px-6 py-3 rounded-lg shadow-md transition-colors hover:bg-blue-500 hover:text-white mb-4 sm:mb-0">
-                            <i className="fas fa-city mr-2"></i>
-                            Jerusalem
-                        </a>
-                    </nav>
-                </section>
+                                <Cites/>
 
 
 
-                <button onClick="scrollToTop()" className="fixed bottom-8 right-8 w-12 h-12 rounded-full text-lg flex items-center justify-center bg-green-500 text-white hover:bg-green-600 shadow-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
-                    ↑
-                </button>
+                <UpButton/>
 
 
 
 
 
-
+{/* This section shows the 5 cites attractions examples suggetion for the user with all information of all attractions*/}
                                 <section className="container mx-auto py-8 px-4">
                                         <div id="haifa" className="mb-8">
                         <h3 className="text-2xl font-bold mb-2 text-center">Haifa</h3>
@@ -582,41 +558,7 @@ const ThingsToDo = () => {
                                                                                 </div>
                     </div>
                                     </section>
-                                <footer className="bg-gray-800 text-white">
-                    <div className="container mx-auto px-4 py-8">
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                                                        <div>
-                                <h2 className="font-bold text-lg mb-4">About Us</h2>
-                                <p>Discover the best of Israel with curated travel guides, tips, and insights.</p>
-                            </div>
-                                                        <div>
-                                <h2 className="font-bold text-lg mb-4">Quick Links</h2>
-                                <ul>
-                                    <li><a href="/explore" className="hover:text-blue-400">Explore</a></li>
-                                    <li><a href="/restaurants" className="hover:text-blue-400">Restaurants</a></li>
-                                    <li><a href="#" className="hover:text-blue-400">Where to Go</a></li>
-                                    <li><a href="/thingstodo" className="hover:text-blue-400">Things to Do</a></li>
-                                </ul>
-                            </div>
-                                                        <div>
-                                <h2 className="font-bold text-lg mb-4">Contact Us</h2>
-                                <p>Email: contact@example.com</p>
-                                <p>Phone: +972 123 4567</p>
-                            </div>
-                                                        <div>
-                                <h2 className="font-bold text-lg mb-4">Follow Us</h2>
-                                <div className="flex space-x-4">
-                                    <a href="#" className="hover:text-blue-400">Facebook</a>
-                                    <a href="#" className="hover:text-blue-400">Instagram</a>
-                                    <a href="#" className="hover:text-blue-400">Twitter</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="border-t border-gray-700 text-center py-4">
-                        <p>&copy; 2024 Travel Israel. All rights reserved.</p>
-                    </div>
-                </footer>
+                                <Footer/> {/*here we call Footer in components folder to display the Footer in the page */}
                                 <script src="attracationscard.js"></script>
 
             </body>
