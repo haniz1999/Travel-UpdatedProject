@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
+	{/* This is the navbar for each page, we use the same one so we call <Navbar/> each time to show it in each page*/}
 const Navbar = () => {
     return (
         <nav className="bg-white shadow-md dark:bg-gray-900">

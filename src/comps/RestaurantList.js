@@ -1,5 +1,5 @@
 import React from 'react';
-
+{/* This is for showing restaurant list, it contains restaurant name, open times, location and social media things*/}
 const RestaurantList = ({ loading, buttonClicked, data }) => {
     console.log("RestaurantList",loading, buttonClicked, data )
     return (

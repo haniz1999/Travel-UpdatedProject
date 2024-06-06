@@ -1,5 +1,5 @@
 import React from 'react';
-
+{/* This function is for showing the attraction for the user, it display image, location name, open times*/}
 function AttractionsDisplay({ loading,data }) {
 
         return (

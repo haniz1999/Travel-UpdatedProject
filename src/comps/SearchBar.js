@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {getCoordsByCity} from "../utils/common";
 import RestaurantList from "./RestaurantList";
-
+{/* This is the search bar, for each page we use it to let the user search for a city*/}
 const SearchBar = ({ onSearch}) => {
     const [city, setCity] = useState('');
 
@@ -34,7 +34,7 @@ const SearchBar = ({ onSearch}) => {
                 className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
             >
                 Search
-            </button>
+            </button> {/* here we get the input from the user*/}
 
         </div>
     );

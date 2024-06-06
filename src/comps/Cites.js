@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-
+	{/* This Cites function is for showing the 5 cities in each page in the website, it shows Haifa, Tel Aviv, Jerusalem, Qiryat Shmona and Eilat*/}
 const Cites = () => {
     return (
                     <section className="container mx-auto py-8 px-4">
